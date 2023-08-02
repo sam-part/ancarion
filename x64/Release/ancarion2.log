@@ -1,0 +1,21 @@
+﻿  window.cpp
+C:\Users\Sam\source\repos\ancarion2\ancarion2\engine\sdl\window.cpp(145,40): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Sam\source\repos\ancarion2\ancarion2\engine\sdl\window.cpp(147,18): warning C4018: '>=': signed/unsigned mismatch
+C:\Users\Sam\source\repos\ancarion2\ancarion2\engine\sdl\window.cpp(153,41): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Sam\source\repos\ancarion2\ancarion2\engine\sdl\window.cpp(155,19): warning C4018: '>=': signed/unsigned mismatch
+C:\Users\Sam\source\repos\ancarion2\ancarion2\engine\sdl\window.cpp(173,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Sam\source\repos\ancarion2\ancarion2\engine\sdl\window.cpp(175,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Sam\source\repos\ancarion2\ancarion2\engine\sdl\window.cpp(179,44): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
+C:\Users\Sam\source\repos\ancarion2\ancarion2\engine\sdl\window.cpp(179,81): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
+C:\Users\Sam\source\repos\ancarion2\ancarion2\engine\sdl\window.cpp(179,96): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
+C:\Users\Sam\source\repos\ancarion2\ancarion2\engine\sdl\window.cpp(179,108): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
+C:\Users\Sam\source\repos\ancarion2\ancarion2\engine\sdl\window.cpp(180,24): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
+C:\Users\Sam\source\repos\ancarion2\ancarion2\engine\sdl\window.cpp(180,40): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
+C:\Users\Sam\source\repos\ancarion2\ancarion2\engine\sdl\window.cpp(180,55): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
+C:\Users\Sam\source\repos\ancarion2\ancarion2\engine\sdl\window.cpp(180,67): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
+  Generating code
+  2 of 905 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  ancarion2.vcxproj -> C:\Users\Sam\source\repos\ancarion2\x64\Release\ancarion2.exe
