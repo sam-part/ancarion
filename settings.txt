@@ -1,0 +1,5 @@
+[window]
+terminal_width = 80
+terminal_height = 48
+font = "assets/font.png"
+resizable = 1
