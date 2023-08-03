@@ -90,9 +90,6 @@
     <ClCompile Include="game\util\random.cpp">
       <Filter>Source Files\game\util</Filter>
     </ClCompile>
-    <ClCompile Include="game\game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="engine\sdl\window.cpp">
       <Filter>Source Files\engine\sdl</Filter>
     </ClCompile>
@@ -107,6 +104,18 @@
     </ClCompile>
     <ClCompile Include="engine\ui\ui.cpp">
       <Filter>Source Files\engine\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="game\game.cpp">
+      <Filter>Source Files\game</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\ui\menu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="game\actions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="game\input_mapper.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -169,6 +178,15 @@
     </ClInclude>
     <ClInclude Include="engine\ui\menu.h">
       <Filter>Header Files\engine\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\types\alignment.h">
+      <Filter>Header Files\engine\types</Filter>
+    </ClInclude>
+    <ClInclude Include="game\actions.h">
+      <Filter>Header Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\input_mapper.h">
+      <Filter>Header Files\game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 #include "glyph.h"
+#include "../types/alignment.h"
 
 // 2D container of character
 // Internal structure used in a Surface
@@ -39,6 +40,9 @@ public:
 	void SetBackgroundColor(int x, int y, BackgroundColor bg_color);
 
 	void Print(int x, int y, const std::string& text, Color color = Colors::White, BackgroundColor bg_color = BackgroundColors::None);
+
+	// Prints text aligned to the surface's bounds
+	void PrintAligned(int x, int y, const std::string& text, Alignment alignment, Color color = Colors::White, BackgroundColor bg_color = BackgroundColors::None);
 
 	void Clear();
 

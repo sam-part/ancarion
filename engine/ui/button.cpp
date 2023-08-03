@@ -1,14 +1,35 @@
 #include "button.h"
 
-Button::Button(Point position, std::string text, std::function<void()> callback, Color color)
-	: UIElement(position, {}), text(text), callback(callback), color(color)
+Button::Button(Point position, std::string text, Alignment alignment, Color color, std::function<void()> callback)
+	: UIElement(position, {}, alignment), text(text), color(color), callback(callback)
 {}
+
+void Button::SetHighlightColor(Color fg_color, BackgroundColor bg_color)
+{
+	highlight_color = fg_color;
+	highlight_color_bg = bg_color;
+}
+
+bool Button::IsSelected()
+{
+	return is_selected;
+}
+
+void Button::SetSelected(bool selected)
+{
+	is_selected = selected;
+}
 
 void Button::Draw(Surface & surface)
 {
-	Color draw_color = color;
 	if (is_selected)
-		draw_color = Colors::Red;
+		surface.PrintAligned(position.x, position.y, text, alignment, highlight_color, highlight_color_bg);
+	else
+		surface.PrintAligned(position.x, position.y, text, alignment, color);
+}
 
-	surface.Print(position.x, position.y, text, draw_color);
+void Button::Callback()
+{
+	if (callback)
+		callback();
 }

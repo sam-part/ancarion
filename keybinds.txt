@@ -1,0 +1,17 @@
+[general]
+menu_up = up
+menu_down = down
+menu_left = left
+menu_right = right
+enter = return
+back = escape
+
+menu_up_end = {up, on_release}
+list = {"Hello", "There"}
+
+[worldgen]
+view_up = up
+view_down = down
+view_left = left
+view_right = right
+#view_up_fast = {up, shift}

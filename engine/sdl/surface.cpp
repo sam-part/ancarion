@@ -99,6 +99,28 @@ void Surface::Print(int x, int y, const std::string& text, Color color, Backgrou
 	}
 }
 
+void Surface::PrintAligned(int x, int y, const std::string& text, Alignment alignment, Color color, BackgroundColor bg_color)
+{
+	switch (alignment.type)
+	{
+	case AlignNone:
+		break;
+	case AlignLeft:
+		x = alignment.padding;
+		break;
+	case AlignRight:
+		x = surface_data.width - text.length() - alignment.padding;
+		break;
+	case AlignCenter:
+		x = (surface_data.width - text.length()) / 2;
+		break;
+	default:
+		break;
+	}
+	
+	Print(x, y, text, color, bg_color);
+}
+
 void Surface::Clear()
 {
 	Glyph empty_glyph{};

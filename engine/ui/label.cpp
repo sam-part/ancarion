@@ -1,10 +1,10 @@
 #include "label.h"
 
-Label::Label(Point position, std::string text, Color color)
-	: UIElement(position, {}), text(text), color(color)
+Label::Label(Point position, std::string text, Alignment alignment, Color color)
+	: UIElement(position, {}, alignment), text(text), color(color)
 {}
 
 void Label::Draw(Surface& surface)
 {
-	surface.Print(position.x, position.y, text, color);
+	surface.PrintAligned(position.x, position.y, text, alignment, color);
 }

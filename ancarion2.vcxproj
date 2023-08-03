@@ -153,9 +153,12 @@
     <ClCompile Include="engine\ui\border.cpp" />
     <ClCompile Include="engine\ui\button.cpp" />
     <ClCompile Include="engine\ui\label.cpp" />
+    <ClCompile Include="engine\ui\menu.cpp" />
     <ClCompile Include="engine\ui\ui.cpp" />
+    <ClCompile Include="game\actions.cpp" />
     <ClCompile Include="game\config.cpp" />
     <ClCompile Include="game\game.cpp" />
+    <ClCompile Include="game\input_mapper.cpp" />
     <ClCompile Include="game\util\random.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -165,6 +168,7 @@
     <ClInclude Include="engine\sdl\glyph.h" />
     <ClInclude Include="engine\sdl\surface.h" />
     <ClInclude Include="engine\sdl\window.h" />
+    <ClInclude Include="engine\types\alignment.h" />
     <ClInclude Include="engine\types\characters.h" />
     <ClInclude Include="engine\types\point.h" />
     <ClInclude Include="engine\types\rect.h" />
@@ -175,8 +179,10 @@
     <ClInclude Include="engine\ui\menu.h" />
     <ClInclude Include="engine\ui\ui.h" />
     <ClInclude Include="engine\ui\ui_element.h" />
+    <ClInclude Include="game\actions.h" />
     <ClInclude Include="game\config.h" />
     <ClInclude Include="game\game.h" />
+    <ClInclude Include="game\input_mapper.h" />
     <ClInclude Include="game\states\state.h" />
     <ClInclude Include="game\states\state_manager.h" />
     <ClInclude Include="game\util\random.h" />

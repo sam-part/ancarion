@@ -9,10 +9,11 @@ class UIElement
 protected:
 	Point position{};
 	Size size{};
+	Alignment alignment{};
 
 public:
-	UIElement(Point position, Size size)
-		: position(position), size(size)
+	UIElement(Point position, Size size, Alignment alignment)
+		: position(position), size(size), alignment(alignment)
 	{}
 
 	virtual void Draw(Surface& surface) = 0;

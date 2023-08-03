@@ -103,6 +103,9 @@ int Window::GetTerminalHeight()
 
 void Window::PollEvents()
 {
+	key_presses.clear();
+	key_releases.clear();
+
 	SDL_Event event;
 	while (SDL_PollEvent(&event))
 	{
@@ -112,8 +115,11 @@ void Window::PollEvents()
 			Close();
 			break;
 		case SDL_KEYDOWN:
+			key_presses.insert(event.key.keysym.sym);
 			break;
 		case SDL_KEYUP:
+			//key_presses.erase(key_presses.find(event.key.keysym.sym));
+			key_releases.insert(event.key.keysym.sym);
 			break;
 		case SDL_WINDOWEVENT:
 			if (event.window.event == SDL_WINDOWEVENT_SIZE_CHANGED)
@@ -179,18 +185,27 @@ void Window::DisplayTerminal()
 			SDL_Rect src = { (glyph.character % 16) * font_width, (glyph.character / 16) * font_height, font_width, font_height };
 			SDL_Rect dest = { x * font_width, y * font_height, font_width, font_height };
 
-
 			if (glyph.bg_color != BackgroundColors::None && glyph.bg_color < BackgroundColors::NUM_BACKGROUND_COLORS)
 				SDL_RenderCopy(renderer, background_color_textures[glyph.bg_color], NULL, &dest);
 
 			SDL_SetTextureColorMod(font_texture, glyph.color.r, glyph.color.g, glyph.color.b);
 			SDL_RenderCopy(renderer, font_texture, &src, &dest);
-
+			
 			index++;
 		} 
 	}
 
 	SDL_RenderPresent(renderer);
+}
+
+bool Window::IsKeyDown(SDL_Keycode key)
+{
+	return key_presses.contains(key);
+}
+
+bool Window::WasKeyReleased(SDL_Keycode key)
+{
+	return key_releases.contains(key);
 }
 
 bool Window::IsOpen()

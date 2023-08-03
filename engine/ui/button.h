@@ -10,12 +10,23 @@ class Button : public UIElement
 private:
 	std::string text;
 	Color color;
+
+	Color highlight_color = Colors::Black;
+	BackgroundColor highlight_color_bg = BackgroundColors::White;
 	
 	bool is_selected;
+
 	std::function<void()> callback;
 
 public:
-	Button(Point position, std::string text, std::function<void()> callback = nullptr, Color color = Colors::White);
+	Button(Point position, std::string text, Alignment alignment, Color color = Colors::White, std::function<void()> callback = nullptr);
+
+	void SetHighlightColor(Color fg_color, BackgroundColor bg_color);
+
+	bool IsSelected();
+	void SetSelected(bool selected);
 
 	void Draw(Surface& surface);
+
+	void Callback();
 };

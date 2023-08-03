@@ -4,6 +4,7 @@
 #include <SDL2/SDL_image.h>
 #include <string>
 #include <iostream>
+#include <unordered_set>
 #include "surface.h"
 
 struct WindowSettings
@@ -36,11 +37,11 @@ private:
 	unsigned int terminal_width, terminal_height;
 	std::vector<Glyph> terminal;
 
+	std::unordered_set<SDL_Keycode> key_presses;
+	std::unordered_set<SDL_Keycode> key_releases;
+
 	bool window_open = false;
 	bool initialized = false;
-
-	size_t frames = 0;
-	uint64_t t_draw_total = 0;
 
 public:
 	void CreateWindow(const WindowSettings& window_settings);
@@ -55,7 +56,8 @@ public:
 	void DrawSurface(const Surface& surface);
 	void DisplayTerminal();
 
-	//bool IsKeyDown(int key);
+	bool IsKeyDown(SDL_Keycode key);
+	bool WasKeyReleased(SDL_Keycode key);
 
 	bool IsOpen();
 	void Close();
