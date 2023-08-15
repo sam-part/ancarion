@@ -1,24 +1,29 @@
 #pragma once
 
+#include <vector>
+#include <string>
+#include "../engine/sdl/input.h"
 #include "config.h"
-#include "input_mapper.h"
 
 namespace Actions
-{
-	enum : uint16_t
+{	enum Actions : ActionID
 	{
 		General_MenuUp,
 		General_MenuDown,
 		General_MenuLeft,
 		General_MenuRight,
-		General_Enter,
+		General_Continue,
 		General_Back,
 
 		Worldgen_ViewUp,
 		Worldgen_ViewDown,
 		Worldgen_ViewLeft,
-		Worldgen_ViewRight
+		Worldgen_ViewRight,
+		Worldgen_ViewUpFast,
+		Worldgen_ViewDownFast,
+		Worldgen_ViewLeftFast,
+		Worldgen_ViewRightFast,
 	};
-}
 
-void LoadKeybinds(InputMapper& input, const std::string& file_path);
+	void LoadKeybinds(Input& input, const std::string& path);
+}

@@ -40,6 +40,9 @@ void Window::CreateWindow(const WindowSettings& window_settings)
 		return;
 	}
 
+	if (window_settings.is_window_resizable)
+		SDL_SetWindowMinimumSize(window, window_settings.min_terminal_width * font_width, window_settings.min_terminal_height * font_height);
+
 	// Create renderer
 	Uint32 renderer_flags = SDL_RENDERER_ACCELERATED;
 
@@ -75,6 +78,8 @@ void Window::CreateWindow(const WindowSettings& window_settings)
 	terminal.resize(terminal_width * terminal_height);
 
 	window_open = true;
+
+	input.EndTextInput();
 }
 
 void Window::ResizeTerminal(int new_terminal_width, int new_terminal_height)
@@ -101,40 +106,22 @@ int Window::GetTerminalHeight()
 	return terminal_height;
 }
 
-void Window::PollEvents()
+Size Window::GetWindowSize()
 {
-	key_presses.clear();
-	key_releases.clear();
+	return Size(window_width, window_height);
+}
 
-	SDL_Event event;
-	while (SDL_PollEvent(&event))
-	{
-		switch (event.type)
-		{
-		case SDL_QUIT:
-			Close();
-			break;
-		case SDL_KEYDOWN:
-			key_presses.insert(event.key.keysym.sym);
-			break;
-		case SDL_KEYUP:
-			//key_presses.erase(key_presses.find(event.key.keysym.sym));
-			key_releases.insert(event.key.keysym.sym);
-			break;
-		case SDL_WINDOWEVENT:
-			if (event.window.event == SDL_WINDOWEVENT_SIZE_CHANGED)
-			{
-				window_width = event.window.data1;
-				window_height = event.window.data2;
+Input& Window::GetInput()
+{
+	return input;
+}
 
-				//ResizeTerminal(new_terminal_width, new_terminal_height);
-			}
+void Window::HandleInput()
+{
+	input.Update();
+	window_open = !input.WindowShouldExit();
 
-			break;
-		default:
-			break;
-		}
-	}
+	SDL_GetWindowSize(window, &window_width, &window_height);
 }
 
 void Window::Clear()
@@ -196,16 +183,6 @@ void Window::DisplayTerminal()
 	}
 
 	SDL_RenderPresent(renderer);
-}
-
-bool Window::IsKeyDown(SDL_Keycode key)
-{
-	return key_presses.contains(key);
-}
-
-bool Window::WasKeyReleased(SDL_Keycode key)
-{
-	return key_releases.contains(key);
 }
 
 bool Window::IsOpen()

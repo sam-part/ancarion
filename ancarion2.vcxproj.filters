@@ -25,12 +25,6 @@
     <Filter Include="Source Files\engine">
       <UniqueIdentifier>{8a8505c9-91ef-4dfe-beff-559a0d790a40}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\engine\ui">
-      <UniqueIdentifier>{1ce4664e-3636-4d51-9f16-341ecb0bcd0e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\engine\ui">
-      <UniqueIdentifier>{16a9f6cf-f7ab-430b-bb5c-6e4de3a28629}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\engine\sdl">
       <UniqueIdentifier>{b72717b5-706d-4c7f-a3dd-da470c6f113b}</UniqueIdentifier>
     </Filter>
@@ -61,6 +55,12 @@
     <Filter Include="Source Files\engine\types">
       <UniqueIdentifier>{d0909b6b-7f56-4827-a0d4-72d8866af225}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\game\ui">
+      <UniqueIdentifier>{2443c554-b4af-4441-8574-aff4d47c070c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\game\ui">
+      <UniqueIdentifier>{162c3414-a99c-4218-b4cd-d007f4ca26fa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -71,9 +71,6 @@
     </ClCompile>
     <ClCompile Include="engine\sdl\surface.cpp">
       <Filter>Source Files\engine\sdl</Filter>
-    </ClCompile>
-    <ClCompile Include="engine\ui\border.cpp">
-      <Filter>Source Files\engine\ui</Filter>
     </ClCompile>
     <ClCompile Include="engine\types\point.cpp">
       <Filter>Source Files\engine\types</Filter>
@@ -96,26 +93,29 @@
     <ClCompile Include="engine\types\rect.cpp">
       <Filter>Source Files\engine\types</Filter>
     </ClCompile>
-    <ClCompile Include="engine\ui\label.cpp">
-      <Filter>Source Files\engine\ui</Filter>
-    </ClCompile>
-    <ClCompile Include="engine\ui\button.cpp">
-      <Filter>Source Files\engine\ui</Filter>
-    </ClCompile>
-    <ClCompile Include="engine\ui\ui.cpp">
-      <Filter>Source Files\engine\ui</Filter>
-    </ClCompile>
     <ClCompile Include="game\game.cpp">
       <Filter>Source Files\game</Filter>
     </ClCompile>
-    <ClCompile Include="engine\ui\menu.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="engine\sdl\input.cpp">
+      <Filter>Source Files\engine\sdl</Filter>
     </ClCompile>
     <ClCompile Include="game\actions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="game\input_mapper.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="game\ui\ui.cpp">
+      <Filter>Source Files\game\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="game\ui\menu.cpp">
+      <Filter>Source Files\game\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="game\ui\label.cpp">
+      <Filter>Source Files\game\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="game\ui\border.cpp">
+      <Filter>Source Files\game\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="game\ui\button.cpp">
+      <Filter>Source Files\game\ui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -131,9 +131,6 @@
     <ClInclude Include="engine\sdl\window.h">
       <Filter>Header Files\engine\sdl</Filter>
     </ClInclude>
-    <ClInclude Include="engine\ui\border.h">
-      <Filter>Header Files\engine\ui</Filter>
-    </ClInclude>
     <ClInclude Include="engine\types\characters.h">
       <Filter>Header Files\engine\types</Filter>
     </ClInclude>
@@ -143,14 +140,8 @@
     <ClInclude Include="engine\ascii_engine.h">
       <Filter>Header Files\engine</Filter>
     </ClInclude>
-    <ClInclude Include="engine\ui\ui.h">
-      <Filter>Header Files\engine\ui</Filter>
-    </ClInclude>
     <ClInclude Include="engine\types\size.h">
       <Filter>Header Files\engine\types</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\ui\ui_element.h">
-      <Filter>Header Files\engine\ui</Filter>
     </ClInclude>
     <ClInclude Include="game\states\state.h">
       <Filter>Source Files\game\states</Filter>
@@ -170,23 +161,32 @@
     <ClInclude Include="engine\types\rect.h">
       <Filter>Header Files\engine\types</Filter>
     </ClInclude>
-    <ClInclude Include="engine\ui\label.h">
-      <Filter>Header Files\engine\ui</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\ui\button.h">
-      <Filter>Header Files\engine\ui</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\ui\menu.h">
-      <Filter>Header Files\engine\ui</Filter>
-    </ClInclude>
     <ClInclude Include="engine\types\alignment.h">
       <Filter>Header Files\engine\types</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\sdl\input.h">
+      <Filter>Header Files\engine\sdl</Filter>
     </ClInclude>
     <ClInclude Include="game\actions.h">
       <Filter>Header Files\game</Filter>
     </ClInclude>
-    <ClInclude Include="game\input_mapper.h">
-      <Filter>Header Files\game</Filter>
+    <ClInclude Include="game\ui\border.h">
+      <Filter>Header Files\game\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="game\ui\button.h">
+      <Filter>Header Files\game\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="game\ui\label.h">
+      <Filter>Header Files\game\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="game\ui\menu.h">
+      <Filter>Header Files\game\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="game\ui\ui.h">
+      <Filter>Header Files\game\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="game\ui\ui_element.h">
+      <Filter>Header Files\game\ui</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

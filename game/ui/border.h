@@ -1,9 +1,9 @@
 #pragma once
 
-#include "../types/characters.h"
-#include "../types/rect.h"
-#include "../sdl/color.h"
-#include "../sdl/surface.h"
+#include "../../engine/types/characters.h"
+#include "../../engine/types/rect.h"
+#include "../../engine/sdl/color.h"
+#include "../../engine/sdl/surface.h"
 
 namespace BorderStyle
 {

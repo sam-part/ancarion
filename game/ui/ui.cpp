@@ -1,5 +1,13 @@
 #include "ui.h"
 
+void UI::Update(Input& input)
+{
+	for (std::unique_ptr<UIElement>& ui_element : ui_elements)
+	{
+		ui_element->Update(input);
+	}
+}
+
 void UI::Draw(Surface& surface)
 {
 	for (std::unique_ptr<UIElement>& ui_element : ui_elements)

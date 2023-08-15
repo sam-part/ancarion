@@ -1,7 +1,5 @@
 #pragma once
 
-#include <fstream>
-#include <iostream>
 #include <string>
 #include <vector>
 #include <sstream>
@@ -13,6 +11,7 @@ private:
 	char comment_token = '#';
 
 	std::unordered_map<std::string, std::unordered_map<std::string, std::string>> config;
+	std::unordered_map<std::string, std::unordered_map<std::string, std::vector<std::string>>> list_config;
 
 	std::vector<std::string> errors;
 
@@ -26,14 +25,17 @@ public:
 
 	std::string GetString(const std::string& section, const std::string& identifier);
 
-	template<typename T> 
-	T Get (const std::string& section, const std::string& identifier);
+	template<typename T>
+	T Get(const std::string& section, const std::string& identifier);
+
+	bool IsList(const std::string& section, const std::string& identifier);
+	std::vector<std::string> GetList(const std::string& section, const std::string& identifier);
 
 	bool HasErrors();
 	const std::vector<std::string> GetErrors();
 };
 
-template<typename T> 
+template<typename T>
 inline T Config::Get(const std::string& section, const std::string& identifier)
 {
 	static_assert(not std::same_as<T, std::string>, "Must be non-string type");
@@ -41,8 +43,8 @@ inline T Config::Get(const std::string& section, const std::string& identifier)
 	std::string str_value = GetString(section, identifier);
 	std::istringstream iss(str_value);
 
-	T t_value {};
+	T t_value{};
 	iss >> t_value;
 
-	return t_value; 
+	return t_value;
 }

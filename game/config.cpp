@@ -1,6 +1,7 @@
 #include "config.h"
 
-#include <execution>
+#include <fstream>
+#include <iostream>
 
 void Config::Error(const std::string& message)
 {
@@ -24,6 +25,23 @@ void Config::Warn(const std::string& message, size_t line)
 	std::cout << "CONFIG_WARN: " << message << " (Line " << line << ")\n";
 }
 
+std::string RemoveWhitespace(const std::string& string, size_t start_pos, size_t end_pos)
+{
+	size_t first_char_pos = string.find_first_not_of(' ', start_pos);
+
+	if (first_char_pos == std::string::npos)
+		return "";
+
+	size_t length = end_pos - (first_char_pos - start_pos);
+
+	std::string str = string.substr(first_char_pos, length);
+
+	// Remove whitespace on string end
+	for (size_t idx = str.length(); idx-- > 0; )
+		if (!isspace(str[idx]))
+			return str.substr(0, idx + 1);
+}
+
 Config::Config(const std::string& path)
 {
 	std::ifstream file(path);
@@ -42,6 +60,9 @@ Config::Config(const std::string& path)
 	while (std::getline(file, line))
 	{
 		line_num++;
+
+		if (line.empty())
+			continue;
 
 		size_t first_char_pos = line.find_first_not_of(' ');
 
@@ -63,51 +84,16 @@ Config::Config(const std::string& path)
 			continue;
 		}
 
-		std::string value;
-		bool is_quoted_str = false;
+		size_t assign_pos = line.find_first_of('=', first_char_pos);
 
-		size_t str_start_pos = line.find('\"');
-		if (str_start_pos != std::string::npos)
-		{
-			size_t str_end_pos = line.find('\"', str_start_pos + 1);
-			if (str_end_pos == std::string::npos)
-			{
-				Error("Could not parse string", line_num);
-				continue;
-			}
-
-			size_t token_length = str_end_pos - str_start_pos;
-
-			value = line.substr(str_start_pos + 1, token_length - 1);
-			line.erase(line.begin() + str_start_pos, line.begin() + str_end_pos + 1);
-
-			is_quoted_str = true;
-		}
-
-		line.erase(std::remove_if(line.begin(), line.end(), std::isspace), line.end());
-
-		size_t assign_pos = line.find('=');
 		if (assign_pos == std::string::npos)
 		{
 			Error("Could not parse token identifier '" + line + "'", line_num);
 			continue;
 		}
 
-		if (str_start_pos <= assign_pos)
-		{
-			Error("Could not parse invalid token identifier '" + value + "'", line_num);
-			continue;
-		}
-
-		std::string identifier = line.substr(0, assign_pos);
-
-		if (!is_quoted_str)
-			value = line.substr(assign_pos + 1, line.length() - assign_pos - 1);
-
-		if (value.empty())
-		{
-			Warn("Empty token '" + identifier + "'. This may cause undefined behaviour", line_num);
-		}
+		std::string identifier = RemoveWhitespace(line, first_char_pos, assign_pos - first_char_pos);
+		std::string raw_value = RemoveWhitespace(line, assign_pos + 1, line.length());
 
 		if (!in_section)
 		{
@@ -115,7 +101,39 @@ Config::Config(const std::string& path)
 			continue;
 		}
 
-		config[section][identifier] = value;
+		if (raw_value.empty())
+		{
+			Warn("Empty token '" + identifier + "'. This may cause undefined behaviour", line_num);
+			config[section][identifier] = "";
+			continue;
+		}
+
+		if (raw_value[0] == '{') // List
+		{
+			std::vector<std::string> values;
+
+			size_t search_pos = 1;
+			while (true)
+			{
+				size_t end_pos = raw_value.find_first_of(',', search_pos);
+
+				if (end_pos == std::string::npos)
+					end_pos = raw_value.find_first_of('}', search_pos);
+
+				if (end_pos == std::string::npos)
+					break;
+
+				values.push_back(RemoveWhitespace(raw_value, search_pos, end_pos - search_pos));
+
+				search_pos = end_pos + 1;
+			}
+
+			list_config[section][identifier] = values;
+		}
+		else
+		{
+			config[section][identifier] = raw_value;
+		}
 	}
 }
 
@@ -124,8 +142,24 @@ std::string Config::GetString(const std::string& section, const std::string& ide
 	auto it = config[section].find(identifier);
 	if (it != config[section].end())
 		return it->second;
-	
+
 	Warn("Token '" + identifier + "' in section [" + section + "] does not exist");
+
+	return {};
+}
+
+bool Config::IsList(const std::string& section, const std::string& identifier)
+{
+	return list_config[section].contains(identifier);
+}
+
+std::vector<std::string> Config::GetList(const std::string& section, const std::string& identifier)
+{
+	auto it = list_config[section].find(identifier);
+	if (it != list_config[section].end())
+		return it->second;
+
+	Warn("List '" + identifier + "' in section [" + section + "] does not exist");
 
 	return {};
 }

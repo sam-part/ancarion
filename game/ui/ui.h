@@ -3,6 +3,7 @@
 #include <vector>
 #include <memory>
 
+#include "../../engine/sdl/input.h"
 #include "ui_element.h"
 #include "border.h"
 #include "label.h"
@@ -15,7 +16,7 @@ private:
 	std::vector<std::unique_ptr<UIElement>> ui_elements;
 	
 public:
-	void HandleInput();
+	void Update(Input& input);
 	void Draw(Surface& surface);
 
 	void Add(std::unique_ptr<UIElement> ui_element);
