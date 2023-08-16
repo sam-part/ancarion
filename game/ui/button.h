@@ -14,9 +14,9 @@ private:
 	Color highlight_color = Colors::Black;
 	BackgroundColor highlight_color_bg = BackgroundColors::White;
 	
-	bool is_selected;
+	bool is_selected = false;
 
-	std::function<void()> callback;
+	std::function<void()> callback = nullptr;
 
 public:
 	Button(Point position, std::string text, Alignment alignment, Color color = Colors::White, std::function<void()> callback = nullptr);

@@ -49,7 +49,7 @@ void Game::Run()
 	Button button2({ NULL, 26 }, "LOAD GAME", { AlignLeft, 10 });
 	Button button3({ NULL, 27 }, "SETTINGS", { AlignLeft, 10 });
 	Button button4({ NULL, 28 }, "QUIT", { AlignLeft, 10 });
-	Menu menu({ button1, button2, button3, button4 }, MenuType::Horizontal);
+	Menu menu({ button1, button2, button3, button4 }, MenuType::Vertical);
 
 	ui.Add(std::make_unique<Menu>(menu));
 

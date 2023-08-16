@@ -33,7 +33,6 @@ void Menu::AddButton(Button button)
 	buttons.push_back(button);
 }
 
-#include <iostream>
 void Menu::Update(Input& input)
 {
 	if (input.ActionTriggered(move_back_action) && current_index > 0)

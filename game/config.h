@@ -44,7 +44,7 @@ inline T Config::Get(const std::string& section, const std::string& identifier)
 	std::istringstream iss(str_value);
 
 	T t_value{};
-	iss >> t_value;
+	iss >> std::boolalpha >> t_value;
 
 	return t_value;
 }
