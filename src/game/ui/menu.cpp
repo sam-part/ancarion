@@ -28,6 +28,16 @@ void Menu::SetMenuType(MenuType type)
 	}
 }
 
+void Menu::SetActive(bool active)
+{
+	is_active = active;
+}
+
+bool Menu::IsActive() const
+{
+	return is_active;
+}
+
 void Menu::AddButton(Button button)
 {
 	buttons.push_back(button);
@@ -35,10 +45,31 @@ void Menu::AddButton(Button button)
 
 void Menu::Update(Input& input)
 {
+	if (!is_active)
+		return;
+
+	if (selection_made)
+	{
+		is_active = false;
+		return;
+	}
+
 	if (input.ActionTriggered(move_back_action) && current_index > 0)
+	{
 		current_index--;
+		selection_made = false;
+	}
 	else if (input.ActionTriggered(move_forward_action) && current_index < buttons.size() - 1)
+	{
 		current_index++;
+		selection_made = false;
+	}
+	
+	if (input.ActionTriggered(Actions::General_Continue))
+	{
+		buttons[current_index].Callback();
+		selection_made = true;
+	}
 }
 
 void Menu::Draw(Surface& surface)
@@ -50,4 +81,14 @@ void Menu::Draw(Surface& surface)
 		button.Draw(surface);
 		index++;
 	}
+}
+
+bool Menu::SelectionMade() const
+{
+	return selection_made && is_active;
+}
+
+int Menu::GetSelectedIndex() const
+{
+	return current_index;
 }

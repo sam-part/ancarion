@@ -1,7 +1,6 @@
 #pragma once
 
 #include <vector>
-#include <memory>
 
 #include "../../engine/sdl/input.h"
 #include "ui_element.h"
@@ -13,12 +12,12 @@
 class UI
 {
 private:
-	std::vector<std::unique_ptr<UIElement>> ui_elements;
+	std::vector<UIElement*> ui_elements;
 	
 public:
 	void Update(Input& input);
 	void Draw(Surface& surface);
 
-	void Add(std::unique_ptr<UIElement> ui_element);
+	void Add(UIElement* ui_element);
 	void Clear();
 };

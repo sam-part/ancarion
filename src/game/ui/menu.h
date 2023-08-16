@@ -14,7 +14,9 @@ class Menu : public UIElement
 {
 private:
 	std::vector<Button> buttons = {};
-	int current_index = 0;
+
+	bool is_active = true;
+	unsigned int current_index = 0;
 	bool selection_made = false;
 
 	MenuType menu_type = MenuType::Vertical;
@@ -26,14 +28,16 @@ public:
 	Menu(MenuType menu_type = MenuType::Vertical);
 	Menu(std::vector<Button> buttons, MenuType menu_type = MenuType::Vertical);
 
-	void SetMenuType(MenuType type);
+	void SetActive(bool active);
+	bool IsActive() const;
 
+	void SetMenuType(MenuType type);
 	void AddButton(Button button);
 
 	void Update(Input& input);
 
 	void Draw(Surface& surface);
 
-	bool SelectionMade();
-	int GetSelectedIndex();
+	bool SelectionMade() const;
+	int GetSelectedIndex() const;
 };

@@ -188,5 +188,8 @@
     <ClInclude Include="src\game\states\state_manager.h">
       <Filter>Header Files\game\states</Filter>
     </ClInclude>
+    <ClInclude Include="src\game\ui\multi_menu.h">
+      <Filter>Header Files\game\ui</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

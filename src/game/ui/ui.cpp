@@ -2,7 +2,7 @@
 
 void UI::Update(Input& input)
 {
-	for (std::unique_ptr<UIElement>& ui_element : ui_elements)
+	for (UIElement* ui_element : ui_elements)
 	{
 		ui_element->Update(input);
 	}
@@ -10,13 +10,13 @@ void UI::Update(Input& input)
 
 void UI::Draw(Surface& surface)
 {
-	for (std::unique_ptr<UIElement>& ui_element : ui_elements)
+	for (UIElement* ui_element : ui_elements)
 	{
 		ui_element->Draw(surface);
 	}
 }
 
-void UI::Add(std::unique_ptr<UIElement> ui_element)
+void UI::Add(UIElement* ui_element)
 {
 	ui_elements.push_back(std::move(ui_element));
 }

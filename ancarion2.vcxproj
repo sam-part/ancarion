@@ -183,6 +183,7 @@
     <ClInclude Include="src\game\ui\button.h" />
     <ClInclude Include="src\game\ui\label.h" />
     <ClInclude Include="src\game\ui\menu.h" />
+    <ClInclude Include="src\game\ui\multi_menu.h" />
     <ClInclude Include="src\game\ui\ui.h" />
     <ClInclude Include="src\game\ui\ui_element.h" />
     <ClInclude Include="src\game\util\random.h" />

@@ -9,7 +9,7 @@ class Button : public UIElement
 {
 private:
 	std::string text;
-	Color color;
+	Color color = Colors::White;
 
 	Color highlight_color = Colors::Black;
 	BackgroundColor highlight_color_bg = BackgroundColors::White;
@@ -20,6 +20,7 @@ private:
 
 public:
 	Button(Point position, std::string text, Alignment alignment, Color color = Colors::White, std::function<void()> callback = nullptr);
+	Button(Point position, std::string text, Alignment alignment, std::function<void()> callback);
 
 	void SetHighlightColor(Color fg_color, BackgroundColor bg_color);
 

@@ -1,5 +1,6 @@
 #include "game.h"
 #include <chrono>
+#include <iostream>
 
 Game::Game()
 	: game_config(config_path)
@@ -31,7 +32,7 @@ void Game::Run()
 	UI ui;
 
 	Label label(Point(1, 1), "Label");
-	ui.Add(std::make_unique<Label>(label));
+	ui.Add(&label);
 
 	Glyph g;
 	g.character = 'A';
@@ -45,13 +46,21 @@ void Game::Run()
 	surface.PrintAligned(NULL, 20, "Left", { AlignLeft, 2 });
 	surface.PrintAligned(NULL, 20, "Right", {AlignRight, 2});
 
-	Button button1({ NULL, 25 }, "NEW WORLD", { AlignLeft, 10 });
-	Button button2({ NULL, 26 }, "LOAD GAME", { AlignLeft, 10 });
+	auto nw_c = [&] {
+		std::cout << "New world\n";
+	};
+
+	auto lg_c = [&] {
+		std::cout << "Load game\n";
+	};
+
+	Button button1({ NULL, 25 }, "NEW WORLD", { AlignLeft, 10 }, nw_c);
+	Button button2({ NULL, 26 }, "LOAD GAME", { AlignLeft, 10 }, lg_c);
 	Button button3({ NULL, 27 }, "SETTINGS", { AlignLeft, 10 });
 	Button button4({ NULL, 28 }, "QUIT", { AlignLeft, 10 });
 	Menu menu({ button1, button2, button3, button4 }, MenuType::Vertical);
 
-	ui.Add(std::make_unique<Menu>(menu));
+	ui.Add(&menu);
 
 	// ~1300 fps 
 
@@ -69,6 +78,11 @@ void Game::Run()
 		window.DrawSurface(surface);
 
 		window.DisplayTerminal();
+
+		if (menu.SelectionMade())
+		{
+			std::cout << "selection made " << menu.GetSelectedIndex() << "\n";
+		}
 
 		/*
 		frames++;
