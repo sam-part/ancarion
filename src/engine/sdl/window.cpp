@@ -1,4 +1,5 @@
 #include "window.h"
+#include <iostream>
 
 void Window::CreateWindow(const WindowSettings& window_settings)
 {

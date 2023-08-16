@@ -63,130 +63,130 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="engine\sdl\color.cpp">
-      <Filter>Source Files\engine\sdl</Filter>
-    </ClCompile>
-    <ClCompile Include="engine\sdl\surface.cpp">
-      <Filter>Source Files\engine\sdl</Filter>
-    </ClCompile>
-    <ClCompile Include="engine\types\point.cpp">
-      <Filter>Source Files\engine\types</Filter>
-    </ClCompile>
-    <ClCompile Include="engine\types\characters.cpp">
-      <Filter>Source Files\engine\types</Filter>
-    </ClCompile>
-    <ClCompile Include="engine\types\size.cpp">
-      <Filter>Source Files\engine\types</Filter>
-    </ClCompile>
-    <ClCompile Include="game\config.cpp">
+    <ClCompile Include="src\game\actions.cpp">
       <Filter>Source Files\game</Filter>
     </ClCompile>
-    <ClCompile Include="game\util\random.cpp">
+    <ClCompile Include="src\game\config.cpp">
+      <Filter>Source Files\game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\game.cpp">
+      <Filter>Source Files\game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\util\random.cpp">
       <Filter>Source Files\game\util</Filter>
     </ClCompile>
-    <ClCompile Include="engine\sdl\window.cpp">
-      <Filter>Source Files\engine\sdl</Filter>
+    <ClCompile Include="src\game\ui\border.cpp">
+      <Filter>Source Files\game\ui</Filter>
     </ClCompile>
-    <ClCompile Include="engine\types\rect.cpp">
-      <Filter>Source Files\engine\types</Filter>
+    <ClCompile Include="src\game\ui\button.cpp">
+      <Filter>Source Files\game\ui</Filter>
     </ClCompile>
-    <ClCompile Include="game\game.cpp">
-      <Filter>Source Files\game</Filter>
+    <ClCompile Include="src\game\ui\label.cpp">
+      <Filter>Source Files\game\ui</Filter>
     </ClCompile>
-    <ClCompile Include="engine\sdl\input.cpp">
-      <Filter>Source Files\engine\sdl</Filter>
+    <ClCompile Include="src\game\ui\menu.cpp">
+      <Filter>Source Files\game\ui</Filter>
     </ClCompile>
-    <ClCompile Include="game\actions.cpp">
+    <ClCompile Include="src\game\ui\ui.cpp">
+      <Filter>Source Files\game\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="game\ui\ui.cpp">
-      <Filter>Source Files\game\ui</Filter>
+    <ClCompile Include="src\engine\sdl\color.cpp">
+      <Filter>Source Files\engine\sdl</Filter>
     </ClCompile>
-    <ClCompile Include="game\ui\menu.cpp">
-      <Filter>Source Files\game\ui</Filter>
+    <ClCompile Include="src\engine\sdl\input.cpp">
+      <Filter>Source Files\engine\sdl</Filter>
     </ClCompile>
-    <ClCompile Include="game\ui\label.cpp">
-      <Filter>Source Files\game\ui</Filter>
+    <ClCompile Include="src\engine\sdl\surface.cpp">
+      <Filter>Source Files\engine\sdl</Filter>
     </ClCompile>
-    <ClCompile Include="game\ui\border.cpp">
-      <Filter>Source Files\game\ui</Filter>
+    <ClCompile Include="src\engine\sdl\window.cpp">
+      <Filter>Source Files\engine\sdl</Filter>
     </ClCompile>
-    <ClCompile Include="game\ui\button.cpp">
-      <Filter>Source Files\game\ui</Filter>
+    <ClCompile Include="src\engine\types\characters.cpp">
+      <Filter>Source Files\engine\types</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\types\point.cpp">
+      <Filter>Source Files\engine\types</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\types\rect.cpp">
+      <Filter>Source Files\engine\types</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\types\size.cpp">
+      <Filter>Source Files\engine\types</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="engine\sdl\glyph.h">
+    <ClInclude Include="src\engine\sdl\color.h">
       <Filter>Header Files\engine\sdl</Filter>
     </ClInclude>
-    <ClInclude Include="engine\sdl\color.h">
+    <ClInclude Include="src\engine\sdl\glyph.h">
       <Filter>Header Files\engine\sdl</Filter>
     </ClInclude>
-    <ClInclude Include="engine\sdl\surface.h">
+    <ClInclude Include="src\engine\sdl\input.h">
       <Filter>Header Files\engine\sdl</Filter>
     </ClInclude>
-    <ClInclude Include="engine\sdl\window.h">
+    <ClInclude Include="src\engine\sdl\surface.h">
       <Filter>Header Files\engine\sdl</Filter>
     </ClInclude>
-    <ClInclude Include="engine\types\characters.h">
+    <ClInclude Include="src\engine\sdl\window.h">
+      <Filter>Header Files\engine\sdl</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\types\alignment.h">
       <Filter>Header Files\engine\types</Filter>
     </ClInclude>
-    <ClInclude Include="engine\types\point.h">
+    <ClInclude Include="src\engine\types\characters.h">
       <Filter>Header Files\engine\types</Filter>
     </ClInclude>
-    <ClInclude Include="engine\ascii_engine.h">
+    <ClInclude Include="src\engine\types\point.h">
+      <Filter>Header Files\engine\types</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\types\rect.h">
+      <Filter>Header Files\engine\types</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\types\size.h">
+      <Filter>Header Files\engine\types</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\ascii_engine.h">
       <Filter>Header Files\engine</Filter>
     </ClInclude>
-    <ClInclude Include="engine\types\size.h">
-      <Filter>Header Files\engine\types</Filter>
+    <ClInclude Include="src\game\ui\border.h">
+      <Filter>Header Files\game\ui</Filter>
     </ClInclude>
-    <ClInclude Include="game\states\state.h">
-      <Filter>Source Files\game\states</Filter>
+    <ClInclude Include="src\game\ui\button.h">
+      <Filter>Header Files\game\ui</Filter>
     </ClInclude>
-    <ClInclude Include="game\states\state_manager.h">
-      <Filter>Source Files\game\states</Filter>
+    <ClInclude Include="src\game\ui\label.h">
+      <Filter>Header Files\game\ui</Filter>
     </ClInclude>
-    <ClInclude Include="game\config.h">
-      <Filter>Header Files\game</Filter>
+    <ClInclude Include="src\game\ui\menu.h">
+      <Filter>Header Files\game\ui</Filter>
     </ClInclude>
-    <ClInclude Include="game\game.h">
-      <Filter>Header Files\game</Filter>
+    <ClInclude Include="src\game\ui\ui.h">
+      <Filter>Header Files\game\ui</Filter>
     </ClInclude>
-    <ClInclude Include="game\util\random.h">
+    <ClInclude Include="src\game\ui\ui_element.h">
+      <Filter>Header Files\game\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\util\random.h">
       <Filter>Header Files\game\util</Filter>
     </ClInclude>
-    <ClInclude Include="engine\types\rect.h">
-      <Filter>Header Files\engine\types</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\types\alignment.h">
-      <Filter>Header Files\engine\types</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\sdl\input.h">
-      <Filter>Header Files\engine\sdl</Filter>
-    </ClInclude>
-    <ClInclude Include="game\actions.h">
+    <ClInclude Include="src\game\actions.h">
       <Filter>Header Files\game</Filter>
     </ClInclude>
-    <ClInclude Include="game\ui\border.h">
-      <Filter>Header Files\game\ui</Filter>
+    <ClInclude Include="src\game\config.h">
+      <Filter>Header Files\game</Filter>
     </ClInclude>
-    <ClInclude Include="game\ui\button.h">
-      <Filter>Header Files\game\ui</Filter>
+    <ClInclude Include="src\game\game.h">
+      <Filter>Header Files\game</Filter>
     </ClInclude>
-    <ClInclude Include="game\ui\label.h">
-      <Filter>Header Files\game\ui</Filter>
+    <ClInclude Include="src\game\states\state.h">
+      <Filter>Header Files\game\states</Filter>
     </ClInclude>
-    <ClInclude Include="game\ui\menu.h">
-      <Filter>Header Files\game\ui</Filter>
-    </ClInclude>
-    <ClInclude Include="game\ui\ui.h">
-      <Filter>Header Files\game\ui</Filter>
-    </ClInclude>
-    <ClInclude Include="game\ui\ui_element.h">
-      <Filter>Header Files\game\ui</Filter>
+    <ClInclude Include="src\game\states\state_manager.h">
+      <Filter>Header Files\game\states</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

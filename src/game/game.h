@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../engine/ascii_engine.h"
+#include "ui/ui.h"
 #include "config.h"
 #include "actions.h"
 
