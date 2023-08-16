@@ -54,6 +54,7 @@ void Game::Run()
 		std::cout << "Load game\n";
 	};
 
+
 	Button button1({ NULL, 25 }, "NEW WORLD", { AlignLeft, 10 }, nw_c);
 	Button button2({ NULL, 26 }, "LOAD GAME", { AlignLeft, 10 }, lg_c);
 	Button button3({ NULL, 27 }, "SETTINGS", { AlignLeft, 10 });

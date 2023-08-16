@@ -64,8 +64,7 @@ void Menu::Update(Input& input)
 		current_index++;
 		selection_made = false;
 	}
-	
-	if (input.ActionTriggered(Actions::General_Continue))
+	else if (input.ActionTriggered(Actions::General_Continue))
 	{
 		buttons[current_index].Callback();
 		selection_made = true;
