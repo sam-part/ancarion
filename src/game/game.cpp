@@ -26,76 +26,14 @@ void Game::Run()
 {
 	game_running = true;
 
-	Surface surface(0, 0, window.GetTerminalWidth(), window.GetTerminalHeight());
-	SetBorder(surface, BorderStyle::Double, Colors::White);
-
-	UI ui;
-
-	Label label(Point(1, 1), "Label");
-	ui.Add(&label);
-
-	Glyph g;
-	g.character = 'A';
-	g.color = Colors::Red;
-	g.bg_color = BackgroundColors::DarkGrey;
-	surface.Set(5, 5, g);
-
-	surface.Print(1, 10, "Hello, highlighted text", Colors::Black, BackgroundColors::White);
-
-	surface.PrintAligned(NULL, 20, "Hello", {AlignCenter});
-	surface.PrintAligned(NULL, 20, "Left", { AlignLeft, 2 });
-	surface.PrintAligned(NULL, 20, "Right", {AlignRight, 2});
-
-	auto nw_c = [&] {
-		std::cout << "New world\n";
-	};
-
-	auto lg_c = [&] {
-		std::cout << "Load game\n";
-	};
-
-
-	Button button1({ NULL, 25 }, "NEW WORLD", { AlignLeft, 10 }, nw_c);
-	Button button2({ NULL, 26 }, "LOAD GAME", { AlignLeft, 10 }, lg_c);
-	Button button3({ NULL, 27 }, "SETTINGS", { AlignLeft, 10 });
-	Button button4({ NULL, 28 }, "QUIT", { AlignLeft, 10 });
-	Menu menu({ button1, button2, button3, button4 }, MenuType::Vertical);
-
-	ui.Add(&menu);
-
-	// ~1300 fps 
-
-	auto start = std::chrono::high_resolution_clock::now();
-	uint64_t frames = 0;
-
 	while (game_running && window.IsOpen())
 	{
 		window.Clear();
 		window.HandleInput();
 
-		ui.Update(window.GetInput());
-		ui.Draw(surface);
-
-		window.DrawSurface(surface);
+		state_manager.UpdateStates(*this, window.GetInput());
+		state_manager.DrawStates(window);
 
 		window.DisplayTerminal();
-
-		if (menu.SelectionMade())
-		{
-			std::cout << "selection made " << menu.GetSelectedIndex() << "\n";
-		}
-
-		/*
-		frames++;
-
-		if (frames % 1000 == 0)
-		{
-			auto now = std::chrono::high_resolution_clock::now();
-			auto time_diff = std::chrono::duration_cast<std::chrono::milliseconds>(now - start).count();
-			start = now;
-
-			std::cout << "FPS: " << (1000.0 / (time_diff / 1000.0)) << " (" << time_diff << " ms)\n";
-		}
-		*/
 	}
 }

@@ -154,6 +154,7 @@
     <ClCompile Include="src\game\actions.cpp" />
     <ClCompile Include="src\game\config.cpp" />
     <ClCompile Include="src\game\game.cpp" />
+    <ClCompile Include="src\game\state_manager.cpp" />
     <ClCompile Include="src\game\ui\border.cpp" />
     <ClCompile Include="src\game\ui\button.cpp" />
     <ClCompile Include="src\game\ui\label.cpp" />
@@ -177,8 +178,8 @@
     <ClInclude Include="src\game\actions.h" />
     <ClInclude Include="src\game\config.h" />
     <ClInclude Include="src\game\game.h" />
-    <ClInclude Include="src\game\states\state.h" />
-    <ClInclude Include="src\game\states\state_manager.h" />
+    <ClInclude Include="src\game\states\game_state.h" />
+    <ClInclude Include="src\game\state_manager.h" />
     <ClInclude Include="src\game\ui\border.h" />
     <ClInclude Include="src\game\ui\button.h" />
     <ClInclude Include="src\game\ui\label.h" />
