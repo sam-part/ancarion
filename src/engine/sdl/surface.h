@@ -28,6 +28,7 @@ private:
 	int GetIndex_2D(int x, int y);
 
 public:
+	Surface();
 	Surface(int origin_x, int origin_y, unsigned int width, unsigned int height);
 
 	void SetOrigin(int x, int y);

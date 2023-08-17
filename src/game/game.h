@@ -6,6 +6,8 @@
 #include "config.h"
 #include "actions.h"
 
+#include <memory>
+
 class Game
 {
 private:

@@ -118,6 +118,9 @@
       <Filter>Source Files\engine\types</Filter>
     </ClCompile>
     <ClCompile Include="src\game\state_manager.cpp">
+      <Filter>Source Files\game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\states\main_menu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -192,6 +195,9 @@
       <Filter>Header Files\game\ui</Filter>
     </ClInclude>
     <ClInclude Include="src\game\state_manager.h">
+      <Filter>Header Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\states\main_menu.h">
       <Filter>Header Files\game\states</Filter>
     </ClInclude>
   </ItemGroup>

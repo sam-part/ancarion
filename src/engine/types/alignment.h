@@ -11,5 +11,5 @@ enum AlignmentType
 struct Alignment
 {
 	AlignmentType type = AlignNone;
-	unsigned int padding = 0;
+	int padding = 0;
 };

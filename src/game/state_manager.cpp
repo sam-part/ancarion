@@ -2,7 +2,6 @@
 
 void StateManager::PushState(std::shared_ptr<GameState> state)
 {
-	state->Initialize();
 	states.push_back(std::move(state));
 }
 

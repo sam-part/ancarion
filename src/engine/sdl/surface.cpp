@@ -10,9 +10,13 @@ int Surface::GetIndex_2D(int x, int y)
 	return y * surface_data.width + x;
 }
 
+Surface::Surface()
+	: surface_data {0, 0, 0, 0}
+{}
+
 Surface::Surface(int origin_x, int origin_y, unsigned int width, unsigned int height)
+	: surface_data{ origin_x, origin_y, width, height }
 {
-	surface_data = SurfaceData{ origin_x, origin_y, width, height };
 	surface_data.data.resize(width * height);
 }
 
@@ -112,7 +116,7 @@ void Surface::PrintAligned(int x, int y, const std::string& text, Alignment alig
 		x = surface_data.width - text.length() - alignment.padding;
 		break;
 	case AlignCenter:
-		x = (surface_data.width - text.length()) / 2;
+		x = (surface_data.width - text.length()) / 2 + alignment.padding;
 		break;
 	default:
 		break;

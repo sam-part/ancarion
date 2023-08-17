@@ -2,6 +2,8 @@
 #include <chrono>
 #include <iostream>
 
+#include "states/main_menu.h"
+
 Game::Game()
 	: game_config(config_path)
 {
@@ -24,6 +26,8 @@ Game::Game()
 
 void Game::Run()
 {
+	state_manager.PushState(std::make_shared<MainMenu>(*this, window));
+
 	game_running = true;
 
 	while (game_running && window.IsOpen())
