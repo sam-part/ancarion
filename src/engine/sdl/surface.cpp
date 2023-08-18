@@ -45,12 +45,12 @@ unsigned int Surface::GetHeight() const
 	return surface_data.height;
 }
 
-void Surface::Set(int x, int y, unsigned char character, Color color, BackgroundColor bg_color)
+void Surface::Set(int x, int y, unsigned char character, Color color, Color bg_color)
 {
 	if (!InBounds(x, y))
 		return;
 
-	int idx = GetIndex_2D(x, y);
+	const int idx = GetIndex_2D(x, y);
 
 	surface_data.data[idx].character = character;
 	surface_data.data[idx].color = color;
@@ -65,23 +65,26 @@ void Surface::Set(int x, int y, Glyph glyph)
 	surface_data.data[GetIndex_2D(x, y)] = glyph;
 }
 
-void Surface::SetColor(int x, int y, Color color)
+void Surface::SetColor(int x, int y, Color color, Color bg_color)
 {
 	if (!InBounds(x, y))
 		return;
 
-	surface_data.data[GetIndex_2D(x, y)].color = color;
+	const int idx = GetIndex_2D(x, y);
+
+	surface_data.data[idx].color = color;
+	surface_data.data[idx].bg_color = color;
 }
 
-void Surface::SetBackgroundColor(int x, int y, BackgroundColor bg_color)
+void Surface::SetBackgroundColor(int x, int y, Color color)
 {
 	if (!InBounds(x, y))
 		return;
 
-	surface_data.data[GetIndex_2D(x, y)].bg_color = bg_color;
+	surface_data.data[GetIndex_2D(x, y)].bg_color = color;
 }
 
-void Surface::Print(int x, int y, const std::string& text, Color color, BackgroundColor bg_color)
+void Surface::Print(int x, int y, const std::string& text, Color color, Color bg_color)
 {
 	if (!InBounds(x, y))
 		return;
@@ -103,7 +106,7 @@ void Surface::Print(int x, int y, const std::string& text, Color color, Backgrou
 	}
 }
 
-void Surface::PrintAligned(int x, int y, const std::string& text, Alignment alignment, Color color, BackgroundColor bg_color)
+void Surface::PrintAligned(int x, int y, const std::string& text, Alignment alignment, Color color, Color bg_color)
 {
 	switch (alignment.type)
 	{

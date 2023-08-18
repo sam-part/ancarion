@@ -16,6 +16,12 @@ MainMenu::MainMenu(Game& game, Window& window)
 	menu.AddButton(Button(Point(NULL, center_y + 2), "QUIT", { AlignCenter, -3 }));
 
 	ui.Add(&menu);
+
+	Glyph g;
+	g.character = 'a';
+	g.color = Colors::White;
+	g.bg_color = { 0, 0, 255 };
+	surface.Set(2, 2, g);
 }
 
 void MainMenu::Update(Game& game, Input& input)

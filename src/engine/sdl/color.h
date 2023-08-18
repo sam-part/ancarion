@@ -29,36 +29,3 @@ namespace Colors
 	extern Color DarkCyan;
 	extern Color DarkGrey;
 }
-
-namespace BackgroundColors
-{
-	enum BackgroundColor : uint8_t
-	{
-		White,
-		Black,
-
-		Red,
-		Green,
-		Blue,
-		Yellow,
-		Magenta,
-		Cyan,
-		Grey,
-
-		DarkRed,
-		DarkGreen,
-		DarkBlue,
-		DarkYellow,
-		DarkMagenta,
-		DarkCyan,
-		DarkGrey,
-
-		NUM_BACKGROUND_COLORS,
-
-		None = UINT8_MAX,
-	};
-
-	extern std::vector<Color> colors;
-}
-
-typedef BackgroundColors::BackgroundColor BackgroundColor;

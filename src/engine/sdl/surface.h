@@ -34,16 +34,16 @@ public:
 	void SetOrigin(int x, int y);
 	void SetDimensions(unsigned int width, unsigned int height);
 
-	void Set(int x, int y, unsigned char character, Color color = Colors::White, BackgroundColor bg_color = BackgroundColors::None);
+	void Set(int x, int y, unsigned char character, Color color = Colors::White, Color bg_color = Colors::Black);
 	void Set(int x, int y, Glyph glyph);
 
-	void SetColor(int x, int y, Color color);
-	void SetBackgroundColor(int x, int y, BackgroundColor bg_color);
+	void SetColor(int x, int y, Color color, Color bg_color = Colors::Black);
+	void SetBackgroundColor(int x, int y, Color color);
 
-	void Print(int x, int y, const std::string& text, Color color = Colors::White, BackgroundColor bg_color = BackgroundColors::None);
+	void Print(int x, int y, const std::string& text, Color color = Colors::White, Color bg_color = Colors::Black);
 
 	// Prints text aligned to the surface's bounds
-	void PrintAligned(int x, int y, const std::string& text, Alignment alignment, Color color = Colors::White, BackgroundColor bg_color = BackgroundColors::None);
+	void PrintAligned(int x, int y, const std::string& text, Alignment alignment, Color color = Colors::White, Color bg_color = Colors::Black);
 
 	void Clear();
 

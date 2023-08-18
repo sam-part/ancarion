@@ -35,7 +35,7 @@ private:
 	SDL_Texture* font_texture;
 	int font_width, font_height;
 
-	std::vector<SDL_Texture*> background_color_textures;
+	SDL_Texture* background_tile_texture;
 
 	int terminal_width, terminal_height;
 	std::vector<Glyph> terminal;

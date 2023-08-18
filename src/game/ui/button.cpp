@@ -8,7 +8,7 @@ Button::Button(Point position, std::string text, Alignment alignment, std::funct
 	: UIElement(position, {}, alignment), text(text), callback(callback)
 {}
 
-void Button::SetHighlightColor(Color fg_color, BackgroundColor bg_color)
+void Button::SetHighlightColor(Color fg_color, Color bg_color)
 {
 	highlight_color = fg_color;
 	highlight_color_bg = bg_color;

@@ -21,27 +21,3 @@ namespace Colors
 	Color DarkCyan{ 0, 128, 128 };
 	Color DarkGrey{ 128, 128, 128 };
 }
-
-namespace BackgroundColors
-{
-	std::vector<Color> colors = {
-		Colors::White,
-		Colors::Black,
-
-		Colors::Red,
-		Colors::Green,
-		Colors::Blue,
-		Colors::Yellow, 
-		Colors::Magenta, 
-		Colors::Cyan, 
-		Colors::Grey, 
-
-		Colors::DarkRed, 
-		Colors::DarkGreen, 
-		Colors::DarkBlue, 
-		Colors::DarkYellow, 
-		Colors::DarkMagenta,
-		Colors::DarkCyan, 
-		Colors::DarkGrey
-	};
-}

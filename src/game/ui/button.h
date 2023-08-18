@@ -12,7 +12,7 @@ private:
 	Color color = Colors::White;
 
 	Color highlight_color = Colors::Black;
-	BackgroundColor highlight_color_bg = BackgroundColors::White;
+	Color highlight_color_bg = Colors::White;
 	
 	bool is_selected = false;
 
@@ -22,7 +22,7 @@ public:
 	Button(Point position, std::string text, Alignment alignment, Color color = Colors::White, std::function<void()> callback = nullptr);
 	Button(Point position, std::string text, Alignment alignment, std::function<void()> callback);
 
-	void SetHighlightColor(Color fg_color, BackgroundColor bg_color);
+	void SetHighlightColor(Color fg_color, Color bg_color);
 
 	bool IsSelected();
 	void SetSelected(bool selected);

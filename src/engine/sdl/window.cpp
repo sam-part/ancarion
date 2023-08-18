@@ -66,15 +66,14 @@ void Window::CreateWindow(const WindowSettings& window_settings)
 	SDL_FreeSurface(terminal_font_surface);
 	terminal_font_surface = nullptr;
 
-	// Initialize background colors (these are limited to 16 base colors to avoid recreating them multiple times every frame)
-	SDL_Surface* bg_color_surface = SDL_CreateRGBSurface(NULL, font_width, font_height, 32, 0, 0, 0, 0);
-	for (int i = 0; i < BackgroundColors::NUM_BACKGROUND_COLORS; i++)
-	{
-		Color bg_color = BackgroundColors::colors[i];
+	// Create background tile texture
+	SDL_Surface* background_tile_surface = SDL_CreateRGBSurface(NULL, font_width, font_height, 32, 0, 0, 0, 0);
+	SDL_FillRect(background_tile_surface, NULL, SDL_MapRGB(background_tile_surface->format, 255, 255, 255));
 
-		SDL_FillRect(bg_color_surface, NULL, SDL_MapRGB(bg_color_surface->format, bg_color.r, bg_color.g, bg_color.b));
-		background_color_textures.push_back(SDL_CreateTextureFromSurface(renderer, bg_color_surface));
-	}
+	background_tile_texture = SDL_CreateTextureFromSurface(renderer, background_tile_surface);
+
+	SDL_FreeSurface(background_tile_surface);
+	background_tile_surface = nullptr;
 
 	terminal.resize(terminal_width * terminal_height);
 
@@ -173,9 +172,14 @@ void Window::DisplayTerminal()
 			SDL_Rect src = { (glyph.character % 16) * font_width, (glyph.character / 16) * font_height, font_width, font_height };
 			SDL_Rect dest = { x * font_width, y * font_height, font_width, font_height };
 
-			if (glyph.bg_color != BackgroundColors::None && glyph.bg_color < BackgroundColors::NUM_BACKGROUND_COLORS)
-				SDL_RenderCopy(renderer, background_color_textures[glyph.bg_color], NULL, &dest);
+			// Render background color (if necessary)
+			if (glyph.bg_color.r != 0 || glyph.bg_color.g != 0 || glyph.bg_color.b != 0)
+			{
+				SDL_SetTextureColorMod(background_tile_texture, glyph.bg_color.r, glyph.bg_color.g, glyph.bg_color.b);
+				SDL_RenderCopy(renderer, background_tile_texture, NULL, &dest);
+			}
 
+			// Render tile to screen
 			SDL_SetTextureColorMod(font_texture, glyph.color.r, glyph.color.g, glyph.color.b);
 			SDL_RenderCopy(renderer, font_texture, &src, &dest);
 			
@@ -198,6 +202,9 @@ void Window::Close()
 
 Window::~Window()
 {
+	SDL_DestroyTexture(font_texture);
+	SDL_DestroyTexture(background_tile_texture);
+
 	SDL_DestroyWindow(window);
 	SDL_DestroyRenderer(renderer);
 	SDL_Quit();
