@@ -123,6 +123,12 @@
     <ClCompile Include="src\game\states\main_menu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\game\util\compression.cpp">
+      <Filter>Source Files\game\util</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\util\ascii_art.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\engine\sdl\color.h">
@@ -199,6 +205,12 @@
     </ClInclude>
     <ClInclude Include="src\game\states\main_menu.h">
       <Filter>Header Files\game\states</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\util\compression.h">
+      <Filter>Header Files\game\util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\util\ascii_art.h">
+      <Filter>Header Files\game\util</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

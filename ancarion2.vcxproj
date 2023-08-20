@@ -71,7 +71,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\src\SDL2\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\src\gzip\include;C:\src\SDL2\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\src\SDL2\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -79,7 +79,7 @@
     <LibraryPath>C:\src\SDL2\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Label="Vcpkg">
-    <VcpkgEnabled>false</VcpkgEnabled>
+    <VcpkgEnabled>true</VcpkgEnabled>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -161,6 +161,8 @@
     <ClCompile Include="src\game\ui\label.cpp" />
     <ClCompile Include="src\game\ui\menu.cpp" />
     <ClCompile Include="src\game\ui\ui.cpp" />
+    <ClCompile Include="src\game\util\ascii_art.cpp" />
+    <ClCompile Include="src\game\util\compression.cpp" />
     <ClCompile Include="src\game\util\random.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
@@ -189,6 +191,8 @@
     <ClInclude Include="src\game\ui\multi_menu.h" />
     <ClInclude Include="src\game\ui\ui.h" />
     <ClInclude Include="src\game\ui\ui_element.h" />
+    <ClInclude Include="src\game\util\ascii_art.h" />
+    <ClInclude Include="src\game\util\compression.h" />
     <ClInclude Include="src\game\util\random.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
