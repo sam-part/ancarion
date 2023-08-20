@@ -41,3 +41,8 @@ void Game::Run()
 		window.DisplayTerminal();
 	}
 }
+
+void Game::Exit()
+{
+	game_running = false;
+}

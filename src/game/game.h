@@ -23,4 +23,5 @@ public:
 	Game();
 
 	void Run();
+	void Exit();
 };
