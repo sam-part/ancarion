@@ -1,9 +1,8 @@
 #pragma once
 
 #include "game_state.h"
+#include "../game.h"
 #include "../ui/ui.h"
-
-class Game;
 
 class MainMenu : public GameState
 {

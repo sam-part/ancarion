@@ -1,27 +1,35 @@
 #include "main_menu.h"
 
+#include "../util/ascii_art.h"
+#include <iostream>
+
 MainMenu::MainMenu(Game& game, Window& window)
 {
 	int width = window.GetTerminalWidth();
 	int height = window.GetTerminalHeight();
 
 	surface.SetDimensions(width, height);
-	
-	SetBorder(surface, BorderStyle::Double, Colors::White);
 
 	int center_y = height / 2;
-	
-	menu.AddButton(Button(Point(NULL, center_y), "NEW WORLD", {AlignCenter, 0}));
-	menu.AddButton(Button(Point(NULL, center_y + 1), "LOAD GAME", { AlignCenter, 0 }));
-	menu.AddButton(Button(Point(NULL, center_y + 2), "QUIT", { AlignCenter, -3 }));
+
+	auto quit = [&]
+	{
+		game.Exit();
+	};
+
+	menu.AddButton(Button(Point(NULL, height - 9), "NEW WORLD", {AlignCenter}));
+	menu.AddButton(Button(Point(NULL, height - 8), "LOAD GAME", { AlignCenter }));
+	menu.AddButton(Button(Point(NULL, height - 7), "QUIT", { AlignCenter, -3}, quit));
 
 	ui.Add(&menu);
 
-	Glyph g;
-	g.character = 'a';
-	g.color = Colors::White;
-	g.bg_color = { 0, 0, 255 };
-	surface.Set(2, 2, g);
+	AsciiArt art("data/art/main_menu.aa");
+	art.Draw(surface);
+
+	surface.Print(1, height - 3, "Version 0.0.0d");
+	surface.Print(1, height - 2, "Created by Sam Partington");
+
+	SetBorder(surface, BorderStyle::Normal, Colors::White);
 }
 
 void MainMenu::Update(Game& game, Input& input)
