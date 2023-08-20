@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../../engine/sdl/surface.h"
+#include "../../engine/types/size.h"
 #include <vector>
 #include <string>
 
@@ -8,8 +9,6 @@ class AsciiArt
 {
 private:
 	using IntType = uint8_t;
-
-	const int bytes_per_tile = 7;
 
 	std::vector<Glyph> data {};
 	IntType width = 0;
@@ -22,4 +21,6 @@ public:
 	void Open(const std::string& file_path);
 
 	void Draw(Surface& surface);
+
+	Size GetSize() const;
 }; 

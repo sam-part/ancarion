@@ -55,3 +55,8 @@ void AsciiArt::Draw(Surface& surface)
 		}
 	}
 }
+
+Size AsciiArt::GetSize() const
+{
+	return Size{ width, height };
+}
