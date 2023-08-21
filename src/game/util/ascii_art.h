@@ -2,6 +2,7 @@
 
 #include "../../engine/sdl/surface.h"
 #include "../../engine/types/size.h"
+#include "../../engine/types/point.h"
 #include <vector>
 #include <string>
 
@@ -19,8 +20,7 @@ public:
 	AsciiArt(const std::string& file_path);
 
 	void Open(const std::string& file_path);
-
-	void Draw(Surface& surface);
+	void Draw(Surface& surface, Point position = {0, 0});
 
 	Size GetSize() const;
 }; 

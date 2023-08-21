@@ -24,4 +24,6 @@ public:
 
 	void Run();
 	void Exit();
+
+	StateManager& GetStateManager();
 };

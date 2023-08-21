@@ -42,14 +42,14 @@ void AsciiArt::Open(const std::string& file_path)
 	}
 }
 
-void AsciiArt::Draw(Surface& surface)
+void AsciiArt::Draw(Surface& surface, Point position)
 {
 	int index = 0;
 	for (int y = 0; y < height; y++)
 	{
 		for (int x = 0; x < width; x++)
 		{
-			surface.Set(x, y, data[index]);
+			surface.Set(x + position.x, y + position.y, data[index]);
 
 			index++;
 		}

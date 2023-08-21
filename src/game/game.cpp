@@ -46,3 +46,8 @@ void Game::Exit()
 {
 	game_running = false;
 }
+
+StateManager& Game::GetStateManager()
+{
+	return state_manager;
+}
