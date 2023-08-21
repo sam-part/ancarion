@@ -120,14 +120,14 @@
     <ClCompile Include="src\game\state_manager.cpp">
       <Filter>Source Files\game</Filter>
     </ClCompile>
-    <ClCompile Include="src\game\states\main_menu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\game\util\compression.cpp">
       <Filter>Source Files\game\util</Filter>
     </ClCompile>
     <ClCompile Include="src\game\util\ascii_art.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\game\util</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\states\main_menu.cpp">
+      <Filter>Source Files\game\states</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

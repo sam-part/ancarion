@@ -7,6 +7,7 @@
 #include "surface.h"
 #include "input.h"
 #include "../types/size.h"
+#include "../types/characters.h"
 
 struct WindowSettings
 {
@@ -49,10 +50,9 @@ public:
 	void CreateWindow(const WindowSettings& window_settings);
 	~Window();
 
-	void ResizeTerminal(int new_terminal_width, int new_terminal_height);
-	int GetTerminalWidth();
-	int GetTerminalHeight();
-	Size GetWindowSize();
+	int GetTerminalWidth() const;
+	int GetTerminalHeight() const;
+	Size GetWindowSize() const;
 
 	Input& GetInput();
 

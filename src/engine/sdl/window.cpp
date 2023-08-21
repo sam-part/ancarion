@@ -82,31 +82,17 @@ void Window::CreateWindow(const WindowSettings& window_settings)
 	input.EndTextInput();
 }
 
-void Window::ResizeTerminal(int new_terminal_width, int new_terminal_height)
-{
-	terminal_width = new_terminal_width;
-	terminal_height = new_terminal_height;
-
-	window_width = terminal_width * font_width;
-	window_height = terminal_height * font_height;
-
-	SDL_SetWindowSize(window, window_width, window_height);
-
-	terminal.clear();
-	terminal.resize(terminal_width * terminal_height);
-}
-
-int Window::GetTerminalWidth()
+int Window::GetTerminalWidth() const
 {
 	return terminal_width;
 }
 
-int Window::GetTerminalHeight()
+int Window::GetTerminalHeight() const
 {
 	return terminal_height;
 }
 
-Size Window::GetWindowSize()
+Size Window::GetWindowSize() const
 {
 	return Size(window_width, window_height);
 }
@@ -121,7 +107,19 @@ void Window::HandleInput()
 	input.Update();
 	window_open = !input.WindowShouldExit();
 
+	int prev_window_width = window_width;
+	int prev_window_height = window_height;
+
 	SDL_GetWindowSize(window, &window_width, &window_height);
+
+	if (input.WindowResized())
+	{
+		terminal_width = window_width / font_width;
+		terminal_height = window_height / font_height;
+
+		terminal.clear();
+		terminal.resize(terminal_width * terminal_height);
+	}
 }
 
 void Window::Clear()
@@ -157,6 +155,9 @@ void Window::DrawSurface(const Surface& surface)
 	}
 }
 
+#include <algorithm>
+#include <execution>
+
 void Window::DisplayTerminal()
 {
 	SDL_RenderClear(renderer);
@@ -167,7 +168,10 @@ void Window::DisplayTerminal()
 	{
 		for (int x = 0; x < terminal_width; x++)
 		{
-			Glyph glyph = terminal[index];
+			Glyph glyph = terminal[index++];
+
+			if (glyph.character == Characters::Empty)
+				continue;
 
 			SDL_Rect src = { (glyph.character % 16) * font_width, (glyph.character / 16) * font_height, font_width, font_height };
 			SDL_Rect dest = { x * font_width, y * font_height, font_width, font_height };
@@ -182,8 +186,6 @@ void Window::DisplayTerminal()
 			// Render tile to screen
 			SDL_SetTextureColorMod(font_texture, glyph.color.r, glyph.color.g, glyph.color.b);
 			SDL_RenderCopy(renderer, font_texture, &src, &dest);
-			
-			index++;
 		} 
 	}
 

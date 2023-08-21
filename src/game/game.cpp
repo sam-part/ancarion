@@ -14,8 +14,8 @@ Game::Game()
 	window_settings.window_name = "Ancarion";
 	window_settings.terminal_width = game_config.Get<int>("window", "terminal_width");
 	window_settings.terminal_height = game_config.Get<int>("window", "terminal_height");
-	window_settings.min_terminal_width = 60;
-	window_settings.min_terminal_height = 34;
+	window_settings.min_terminal_width = 80;
+	window_settings.min_terminal_height = 48;
 	window_settings.font_path = game_config.GetString("window", "font");
 	window_settings.is_window_resizable = game_config.Get<bool>("window", "resizable");
 
@@ -50,4 +50,9 @@ void Game::Exit()
 StateManager& Game::GetStateManager()
 {
 	return state_manager;
+}
+
+Size Game::GetTerminalSize() const
+{
+	return Size(window.GetTerminalWidth(), window.GetTerminalHeight());
 }

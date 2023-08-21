@@ -5,9 +5,6 @@
 
 MainMenu::MainMenu(Game& game, Window& window)
 {
-	int window_width = window.GetTerminalWidth();
-	int window_height = window.GetTerminalHeight();
-
 	auto quit = [&game]
 	{
 		game.Exit();
@@ -29,12 +26,11 @@ MainMenu::MainMenu(Game& game, Window& window)
 
 	ui.Add(&menu);
 
-	AsciiArt art("data/art/main_menu.aa");
+	art.Open("data/art/main_menu.aa");
 	Size art_size = art.GetSize();
 
 	surface.SetDimensions(art_size.width, art_size.height);
-	if (window_width > art_size.width || window_height > art_size.height)
-		surface.SetOrigin((window_width - art_size.width) / 2, (window_height - art_size.height) / 2);
+	RecenterSurface(game.GetTerminalSize());
 
 	art.Draw(surface);
 
@@ -48,13 +44,28 @@ MainMenu::MainMenu(Game& game, Window& window)
 	SetBorder(surface, BorderStyle::Normal, Colors::White);
 }
 
+void MainMenu::RecenterSurface(Size window_size)
+{
+	Size art_size = art.GetSize();
+
+	int origin_x = std::max((window_size.width - art_size.width) / 2, 0);
+	int origin_y = std::max((window_size.height - art_size.height) / 2, 0);
+
+	surface.SetOrigin(origin_x, origin_y);
+}
+
+#include <iostream>
+
 void MainMenu::Update(Game& game, Input& input)
 {
 	ui.Update(input);
+
+	if (input.WindowResized())
+		RecenterSurface(game.GetTerminalSize());
 }
 
 void MainMenu::Draw(Window& window)
 {
-	ui.Draw(surface);
+	//ui.Draw(surface);
 	window.DrawSurface(surface);
 }

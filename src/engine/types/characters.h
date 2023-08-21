@@ -21,4 +21,5 @@ namespace Characters
 	extern unsigned char DoubleBRCorner;
 
 	extern unsigned char Solid;
+	extern unsigned char Empty;
 };

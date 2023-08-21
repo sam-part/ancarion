@@ -2,5 +2,5 @@
 terminal_width = 80
 terminal_height = 48
 font = assets/font_16x16.png
-resizable = false
+resizable = true
 mouse_enabled = true

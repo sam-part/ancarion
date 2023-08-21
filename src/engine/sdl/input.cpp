@@ -31,7 +31,7 @@ void Input::Update()
 			text_input += event.text.text;
 			break;
 		case SDL_WINDOWEVENT:
-			if (event.window.event == SDL_WINDOWEVENT_SIZE_CHANGED)
+			if (event.window.event == SDL_WINDOWEVENT_RESIZED)
 				window_resized = true;
 			break;
 		default:

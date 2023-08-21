@@ -26,4 +26,5 @@ public:
 	void Exit();
 
 	StateManager& GetStateManager();
+	Size GetTerminalSize() const;
 };

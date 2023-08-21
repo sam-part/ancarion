@@ -21,4 +21,5 @@ namespace Characters
 	unsigned char DoubleBRCorner = 188;
 
 	unsigned char Solid = 219;
+	unsigned char Empty = 0;
 };
