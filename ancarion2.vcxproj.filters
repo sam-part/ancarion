@@ -129,6 +129,15 @@
     <ClCompile Include="src\game\states\main_menu.cpp">
       <Filter>Source Files\game\states</Filter>
     </ClCompile>
+    <ClCompile Include="src\game\states\worldgen_menu.cpp">
+      <Filter>Source Files\game\states</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\world\world.cpp">
+      <Filter>Source Files\game\world</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\world\world_generator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\engine\sdl\color.h">
@@ -211,6 +220,18 @@
     </ClInclude>
     <ClInclude Include="src\game\util\ascii_art.h">
       <Filter>Header Files\game\util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\states\worldgen_menu.h">
+      <Filter>Header Files\game\states</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\world\map_tile.h">
+      <Filter>Header Files\game\world</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\world\world.h">
+      <Filter>Header Files\game\world</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\world\world_generator.h">
+      <Filter>Header Files\game\world</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

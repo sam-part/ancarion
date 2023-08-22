@@ -155,6 +155,7 @@
     <ClCompile Include="src\game\config.cpp" />
     <ClCompile Include="src\game\game.cpp" />
     <ClCompile Include="src\game\states\main_menu.cpp" />
+    <ClCompile Include="src\game\states\worldgen_menu.cpp" />
     <ClCompile Include="src\game\state_manager.cpp" />
     <ClCompile Include="src\game\ui\border.cpp" />
     <ClCompile Include="src\game\ui\button.cpp" />
@@ -164,6 +165,8 @@
     <ClCompile Include="src\game\util\ascii_art.cpp" />
     <ClCompile Include="src\game\util\compression.cpp" />
     <ClCompile Include="src\game\util\random.cpp" />
+    <ClCompile Include="src\game\world\world.cpp" />
+    <ClCompile Include="src\game\world\world_generator.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -183,6 +186,7 @@
     <ClInclude Include="src\game\game.h" />
     <ClInclude Include="src\game\states\game_state.h" />
     <ClInclude Include="src\game\states\main_menu.h" />
+    <ClInclude Include="src\game\states\worldgen_menu.h" />
     <ClInclude Include="src\game\state_manager.h" />
     <ClInclude Include="src\game\ui\border.h" />
     <ClInclude Include="src\game\ui\button.h" />
@@ -194,6 +198,9 @@
     <ClInclude Include="src\game\util\ascii_art.h" />
     <ClInclude Include="src\game\util\compression.h" />
     <ClInclude Include="src\game\util\random.h" />
+    <ClInclude Include="src\game\world\map_tile.h" />
+    <ClInclude Include="src\game\world\world.h" />
+    <ClInclude Include="src\game\world\world_generator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -155,9 +155,6 @@ void Window::DrawSurface(const Surface& surface)
 	}
 }
 
-#include <algorithm>
-#include <execution>
-
 void Window::DisplayTerminal()
 {
 	SDL_RenderClear(renderer);

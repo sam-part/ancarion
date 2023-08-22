@@ -1,6 +1,7 @@
 #include "main_menu.h"
 
 #include "../util/ascii_art.h"
+#include "worldgen_menu.h"
 #include <iostream>
 
 MainMenu::MainMenu(Game& game, Window& window)
@@ -14,7 +15,7 @@ MainMenu::MainMenu(Game& game, Window& window)
 	{
 		StateManager& state_manager = game.GetStateManager();
 		state_manager.PopState();
-		//state_manager.PushState(std::make_shared<Worldgen>(game, window));
+		state_manager.PushState(std::make_shared<WorldgenMenu>());
 	};
 
 	auto load_game = [&game]
@@ -37,6 +38,8 @@ MainMenu::MainMenu(Game& game, Window& window)
 	menu.AddButton(Button(Point(NULL, art_size.height - 9), "NEW WORLD", { AlignCenter }, new_game));
 	menu.AddButton(Button(Point(NULL, art_size.height - 8), "LOAD GAME", { AlignCenter }, load_game));
 	menu.AddButton(Button(Point(NULL, art_size.height - 7), "QUIT", { AlignCenter, -3 }, quit));
+
+	ui.Draw(surface);
 
 	surface.Print(1, art_size.height - 3, "Version 0.0.0d");
 	surface.Print(1, art_size.height - 2, "Created by Sam Partington");
