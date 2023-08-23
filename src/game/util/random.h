@@ -17,6 +17,7 @@ namespace Random
 
 		uint64_t GetNumber();
 		uint32_t GetNumber(uint32_t min, uint32_t max);
+		int32_t GetNumber(int32_t min, int32_t max);
 
 		float GetFloat();
 		float GetFloat(float min, float max);

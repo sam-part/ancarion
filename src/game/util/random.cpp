@@ -1,5 +1,7 @@
 #include "random.h"
 
+#include <iostream>
+
 namespace Random
 {
 	static inline uint64_t rotl(const uint64_t input, int n)
@@ -64,7 +66,15 @@ namespace Random
 			}
 		}
 
-		return m >> 32;
+		return (m >> 32) + min;
+	}
+
+	int32_t FastRandom::GetNumber(int32_t min, int32_t max)
+	{
+		uint32_t u_min = static_cast<int64_t>(min) + INT32_MAX + 1;
+		uint32_t u_max = static_cast<int64_t>(max) + INT32_MAX + 1; 
+
+		return GetNumber(u_min, u_max) - (static_cast<uint32_t>(INT32_MAX) + 1);
 	}
 
 	float FastRandom::GetFloat()
