@@ -4,6 +4,7 @@
 #include <iostream>
 #include <sstream>
 #include <chrono>
+#include <memory>
 
 namespace Gzip
 {
@@ -24,21 +25,19 @@ namespace Gzip
         deflateInit2(&stream, level, Z_DEFLATED, window_bits, 8, Z_DEFAULT_STRATEGY);
 
         std::string output {};
-        char* output_buffer = new char[chunk_size];
+        std::unique_ptr<char[]> output_buffer = std::make_unique_for_overwrite<char[]>(chunk_size);
 
         do {
             stream.avail_out = (uInt)chunk_size;
-            stream.next_out = (Bytef*)output_buffer;
+            stream.next_out = (Bytef*)output_buffer.get();
 
             deflate(&stream, Z_FINISH);
 
             int output_size = chunk_size - stream.avail_out;
-            output.append(output_buffer, output_size);
+            output.append(output_buffer.get(), output_size);
         } while (stream.avail_out == 0);
 
         deflateEnd(&stream);
-
-        delete[] output_buffer;
 
         return output;
     }
@@ -67,11 +66,11 @@ namespace Gzip
         inflateInit2(&stream, window_bits);
 
         std::string output {};
-        char* output_buffer = new char[chunk_size];
+        std::unique_ptr<char[]> output_buffer = std::make_unique_for_overwrite<char[]>(chunk_size);
 
         do {
             stream.avail_out = (uInt)chunk_size;
-            stream.next_out = (Bytef*)output_buffer;
+            stream.next_out = (Bytef*)output_buffer.get();
 
             int ret = inflate(&stream, Z_NO_FLUSH);
             if (ret != Z_OK && ret != Z_STREAM_END)
@@ -81,12 +80,10 @@ namespace Gzip
             }
 
             int output_size = chunk_size - stream.avail_out;
-            output.append(output_buffer, output_size);
+            output.append(output_buffer.get(), output_size);
         } while (stream.avail_out == 0);
 
         inflateEnd(&stream);
-
-        delete[] output_buffer;
 
         return output;
     }

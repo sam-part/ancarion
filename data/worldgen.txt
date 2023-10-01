@@ -1,0 +1,37 @@
+[parameters]
+width = 60
+height = 48
+
+[elevation]
+scale = 0.05
+layers = {
+	(octaves=2, frequency=1   , weight=1    ),
+	(octaves=4, frequency=0.5 , weight=0.5  ),
+	(octaves=8, frequency=0.25, weight=0.125)
+}
+offset = true
+offset_max = 16384
+
+[temperature]
+scale = 0.04
+layers = {
+	(octaves=4, frequency=1, weight=1)
+}
+offset = false
+
+[precipitation]
+scale = 0.04
+layers = {
+	(octaves=4, frequency=1, weight=1)
+}
+offset = false
+
+[mountains]
+scale = 0.06
+
+[rivers]
+min_source_precipitation = 0.25
+min_source_elevation = 0.4
+min_source_distance = 8
+max_rivers = 512
+turn_chance = 15

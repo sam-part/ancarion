@@ -15,7 +15,7 @@ MainMenu::MainMenu(Game& game, Window& window)
 	{
 		StateManager& state_manager = game.GetStateManager();
 		state_manager.PopState();
-		state_manager.PushState(std::make_shared<WorldgenMenu>());
+		state_manager.PushState(std::make_shared<WorldgenMenu>(game));
 	};
 
 	auto load_game = [&game]
@@ -39,8 +39,6 @@ MainMenu::MainMenu(Game& game, Window& window)
 	menu.AddButton(Button(Point(NULL, art_size.height - 8), "LOAD GAME", { AlignCenter }, load_game));
 	menu.AddButton(Button(Point(NULL, art_size.height - 7), "QUIT", { AlignCenter, -3 }, quit));
 
-	ui.Draw(surface);
-
 	surface.Print(1, art_size.height - 3, "Version 0.0.0d");
 	surface.Print(1, art_size.height - 2, "Created by Sam Partington");
 
@@ -57,8 +55,6 @@ void MainMenu::RecenterSurface(Size window_size)
 	surface.SetOrigin(origin_x, origin_y);
 }
 
-#include <iostream>
-
 void MainMenu::Update(Game& game, Input& input)
 {
 	ui.Update(input);
@@ -69,6 +65,6 @@ void MainMenu::Update(Game& game, Input& input)
 
 void MainMenu::Draw(Window& window)
 {
-	//ui.Draw(surface);
+	ui.Draw(surface);
 	window.DrawSurface(surface);
 }

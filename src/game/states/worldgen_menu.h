@@ -19,12 +19,12 @@ private:
 	UI ui;
 
 	WorldGenerator worldgen;
-	//World world;
+	World world;
 
 	void GenerateWorld();
 
 public:
-	WorldgenMenu();
+	WorldgenMenu(Game& game);
 
 	void Update(Game& game, Input& input);
 	void Draw(Window& window);

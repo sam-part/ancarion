@@ -14,3 +14,8 @@ const ChunkInfo& World::GetChunk(int index)
 {
     return chunks[index];
 }
+
+Size World::GetSize()
+{
+    return size;
+}

@@ -17,7 +17,7 @@ void Window::CreateWindow(const WindowSettings& window_settings)
 
 	// Load font surface
 	SDL_Surface* terminal_font_surface = IMG_Load(window_settings.font_path.c_str());
-	if (terminal_font_surface == NULL)
+	if (terminal_font_surface == nullptr)
 	{
 		std::cout << "IMG_Error: " << IMG_GetError() << "\n";
 		return;
@@ -35,7 +35,7 @@ void Window::CreateWindow(const WindowSettings& window_settings)
 		window_flags |= SDL_WINDOW_RESIZABLE;
 
 	window = SDL_CreateWindow(window_name, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, window_width, window_height, window_flags);
-	if (window == NULL)
+	if (window == nullptr)
 	{
 		std::cout << "SDL could not create window, SDL_Error: " << SDL_GetError() << "\n";
 		return;
@@ -48,7 +48,7 @@ void Window::CreateWindow(const WindowSettings& window_settings)
 	Uint32 renderer_flags = SDL_RENDERER_ACCELERATED;
 
 	renderer = SDL_CreateRenderer(window, -1, renderer_flags);
-	if (renderer == NULL)
+	if (renderer == nullptr)
 	{
 		std::cout << "SDL could not create renderer, SDL_Error: " << SDL_GetError() << "\n";
 		return;
@@ -68,7 +68,7 @@ void Window::CreateWindow(const WindowSettings& window_settings)
 
 	// Create background tile texture
 	SDL_Surface* background_tile_surface = SDL_CreateRGBSurface(NULL, font_width, font_height, 32, 0, 0, 0, 0);
-	SDL_FillRect(background_tile_surface, NULL, SDL_MapRGB(background_tile_surface->format, 255, 255, 255));
+	SDL_FillRect(background_tile_surface, nullptr, SDL_MapRGB(background_tile_surface->format, 255, 255, 255));
 
 	background_tile_texture = SDL_CreateTextureFromSurface(renderer, background_tile_surface);
 
@@ -177,7 +177,7 @@ void Window::DisplayTerminal()
 			if (glyph.bg_color.r != 0 || glyph.bg_color.g != 0 || glyph.bg_color.b != 0)
 			{
 				SDL_SetTextureColorMod(background_tile_texture, glyph.bg_color.r, glyph.bg_color.g, glyph.bg_color.b);
-				SDL_RenderCopy(renderer, background_tile_texture, NULL, &dest);
+				SDL_RenderCopy(renderer, background_tile_texture, nullptr, &dest);
 			}
 
 			// Render tile to screen

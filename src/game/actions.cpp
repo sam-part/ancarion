@@ -27,6 +27,7 @@ namespace Actions
 		}},
 
 		{"worldgen", {
+			{Worldgen_Regenerate, "new_world"},
 			{Worldgen_ViewUp, "view_up"},
 			{Worldgen_ViewDown, "view_down"},
 			{Worldgen_ViewLeft, "view_left"},

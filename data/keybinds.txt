@@ -7,6 +7,7 @@ continue = return
 back = escape
 
 [worldgen]
+new_world = r
 view_up = up
 view_down = down
 view_left = left

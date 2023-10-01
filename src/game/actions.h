@@ -15,6 +15,7 @@ namespace Actions
 		General_Continue,
 		General_Back,
 
+		Worldgen_Regenerate,
 		Worldgen_ViewUp,
 		Worldgen_ViewDown,
 		Worldgen_ViewLeft,

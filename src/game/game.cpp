@@ -21,7 +21,7 @@ Game::Game()
 
 	window.CreateWindow(window_settings);
 
-	Actions::LoadKeybinds(window.GetInput(), "keybinds.txt");
+	Actions::LoadKeybinds(window.GetInput(), "data/keybinds.txt");
 }
 
 void Game::Run()

@@ -9,10 +9,6 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Source Files\game">
       <UniqueIdentifier>{fc6c9269-e26d-49cd-8d38-0ddb02fd74b8}</UniqueIdentifier>
     </Filter>
@@ -60,6 +56,10 @@
     </Filter>
     <Filter Include="Header Files\game\ui">
       <UniqueIdentifier>{162c3414-a99c-4218-b4cd-d007f4ca26fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -136,6 +136,9 @@
       <Filter>Source Files\game\world</Filter>
     </ClCompile>
     <ClCompile Include="src\game\world\world_generator.cpp">
+      <Filter>Source Files\game\world</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\world\world_parameters.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -233,5 +236,13 @@
     <ClInclude Include="src\game\world\world_generator.h">
       <Filter>Header Files\game\world</Filter>
     </ClInclude>
+    <ClInclude Include="src\game\world\world_parameters.h">
+      <Filter>Header Files\game\world</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="..\..\..\..\..\..\src\FastNoise2\bin\FastNoise.dll">
+      <Filter>Resource Files</Filter>
+    </CopyFileToFolders>
   </ItemGroup>
 </Project>

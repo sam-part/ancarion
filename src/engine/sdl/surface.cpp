@@ -14,7 +14,7 @@ Surface::Surface()
 	: surface_data {0, 0, 0, 0}
 {}
 
-Surface::Surface(int origin_x, int origin_y, unsigned int width, unsigned int height)
+Surface::Surface(int origin_x, int origin_y, int width, int height)
 	: surface_data{ origin_x, origin_y, width, height }
 {
 	surface_data.data.resize(width * height);
@@ -26,7 +26,7 @@ void Surface::SetOrigin(int x, int y)
 	surface_data.origin_y = y;
 }
 
-void Surface::SetDimensions(unsigned int width, unsigned int height)
+void Surface::SetDimensions(int width, int height)
 {
 	surface_data.width = width;
 	surface_data.height = height;
@@ -35,12 +35,12 @@ void Surface::SetDimensions(unsigned int width, unsigned int height)
 	surface_data.data.resize(width * height);
 }
 
-unsigned int Surface::GetWidth() const
+int Surface::GetWidth() const
 {
 	return surface_data.width;
 }
 
-unsigned int Surface::GetHeight() const
+int Surface::GetHeight() const
 { 
 	return surface_data.height;
 }

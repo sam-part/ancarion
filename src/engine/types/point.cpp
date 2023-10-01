@@ -17,3 +17,10 @@ Point::Point()
 Point::Point(int x, int y)
     : x(x), y(y)
 {}
+
+const std::vector<Point> directions = {
+    Point(1, 0),
+    Point(-1, 0),
+    Point(0, 1),
+    Point(0, -1)
+};

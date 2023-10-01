@@ -11,8 +11,8 @@ struct SurfaceData
 {
 	int origin_x = 0;
 	int origin_y = 0;
-	unsigned int width = 0;
-	unsigned int height = 0;
+	int width = 0;
+	int height = 0;
 	
 	std::vector<Glyph> data {};
 };
@@ -29,10 +29,10 @@ private:
 
 public:
 	Surface();
-	Surface(int origin_x, int origin_y, unsigned int width, unsigned int height);
+	Surface(int origin_x, int origin_y, int width, int height);
 
 	void SetOrigin(int x, int y);
-	void SetDimensions(unsigned int width, unsigned int height);
+	void SetDimensions(int width, int height);
 
 	void Set(int x, int y, unsigned char character, Color color = Colors::White, Color bg_color = Colors::Black);
 	void Set(int x, int y, Glyph glyph);
@@ -47,8 +47,8 @@ public:
 
 	void Clear();
 
-	unsigned int GetWidth() const;
-	unsigned int GetHeight() const;
+	int GetWidth() const;
+	int GetHeight() const;
 
 	const SurfaceData& GetData() const;
 };
