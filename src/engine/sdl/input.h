@@ -20,7 +20,7 @@ enum class MouseButton
 	Middle
 };
 
-typedef uint16_t ActionID;
+using ActionID = uint16_t;
 
 class Input
 {
