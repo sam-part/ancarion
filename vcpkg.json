@@ -1,0 +1,9 @@
+{
+  "name" : "ancarion",
+  "version-string" : "1.0.0",
+  "builtin-baseline" : "afa12e7292fb47771e619675d7915645fe0adb1b",
+  "dependencies" : [ {
+    "name" : "sfml",
+    "version>=" : "2.6.1"
+  } ]
+}
