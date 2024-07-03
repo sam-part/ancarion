@@ -13,6 +13,11 @@ size_t Size::get_index(int x, int y) const
     return y * width + x;
 }
 
+size_t Size::get_index(Point2D point) const
+{
+    return get_index(point.x, point.y);
+}
+
 bool Size::in_bounds(int x, int y) const
 {
     return (x >= 0 &&

@@ -21,6 +21,7 @@ struct Size
  // Calculates the 1D index of a 2D point
  // Bounds checking should be performed beforehand
  size_t get_index(int x, int y) const;
+ size_t get_index(Point2D point) const;
 
  // Determines if a point lies within the object's bounds
  bool in_bounds(int x, int y) const;
